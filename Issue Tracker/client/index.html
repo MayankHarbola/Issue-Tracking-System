@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Issue Tracker</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./views/css/style.css">
+
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-route/angular-route.min.js"></script>
+
+    <script src="./scripts/login/app.js"></script>
+    <script src="./utils/commonutils.js"></script>
+    <script src="./scripts/login/models/factory.js"></script>
+    <script src="./scripts/login/controller/controller.js"></script>
+    <script src="./scripts/routes.js"></script>
+</head>
+<body ng-app = "login">
+        <div ng-controller = "ctrl">
+                          
+                        <a ng-href="#/">How To use</a>
+                        <a ng-href="#/techuse">Tech Used</a>
+                        <a ng-href="#/features">Features</a>
+                        <a ng-href="#/login">Login</a>
+                    
+    
+                <ng-view></ng-view>  
+               
+            </div>
+</body>
+</html>
