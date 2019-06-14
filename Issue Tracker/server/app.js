@@ -1,9 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const userRoute = require('./routes/userRoutes');
-const addxlx = require('./routes/addxlx');
-
-
 
 const app = express();
 
@@ -11,9 +8,6 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.use(require('./utils/cors'));
-
-
-app.use('/',addxlx);
 app.use('/',userRoute);
 
 

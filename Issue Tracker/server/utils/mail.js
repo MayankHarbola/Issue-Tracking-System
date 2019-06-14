@@ -5,8 +5,8 @@ nodemailer.createTestAccount((error,account)=>{
     let trans = nodemailer.createTransport({
         service:'gmail',
         auth:{
-            user: '',   //
-            pass: '',  //enable less secure app access setting from google // also Disable Captcha if required
+            user: 'fakenemo25@gmail.com',   //saurabhsingh836847@gmail.com---> 2908aman
+            pass: 'yoyohoneysing',  //enable less secure app access setting from google // also Disable Captcha if required
         }
     });
     let mailOption={
