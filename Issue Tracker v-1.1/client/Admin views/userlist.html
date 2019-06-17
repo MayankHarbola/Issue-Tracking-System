@@ -1,0 +1,101 @@
+<div class="container border" ng-controller = "userlist">
+    
+        <h1 class="text-center  alert-info">USERS LIST</h1>
+
+    <input class="form-control mb-3 mt-3"  type="text" ng-model="search" placeholder="Type to Search"  >
+    
+
+    <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>userType</th>
+                    <th>UserName</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    
+                </tr>
+        </thead>
+
+        <tbody ng-init = "users"  >
+            <tr ng-repeat = "user in users|filter:search" ng-model = "val"  ng-class = "{'alert-danger': user.markfordelete}">
+            <td  ng-repeat = "(key,value) in user" ng-if="key != '__v'  && key != 'firsttym' && key != 'markfordelete'" >
+                 {{value}}
+                 
+                 
+            </td>
+            <td >    
+                    <button id="add" ng-click = "edit(user)" class='btn btn-sm btn btn-light  mr-2'><i class="fas fa-edit"></i>&nbsp;Edit</button>
+                    <button id="add" ng-click = "delete(user)" class='btn btn-danger btn-sm'><i class="fas fa-trash-alt mr-2"></i>&nbsp;Delete</button>
+            </td>
+        </tr>
+            
+            
+        </tbody>
+    </table>
+
+
+    <div class="input-group mb-4 ">
+        <div class="input-group-prepend">
+<label for="" class="input-group-text">userType</label>
+  </div>
+<select ng-model = "type">
+        <option disabled selected value>-- select an option --</option>
+        <option value="admin">admin</option>
+        <option value="tester">tester</option>
+        <option value="devloper">devloper</option>
+</select>
+</div>
+
+<div class="input-group mb-4">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">UserName</span>
+        </div>
+        <input placeholder = "Enter UserName"ng-model = "name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+</div>
+
+<div class="input-group mb-4">
+        <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Password</span>
+        </div>
+        <input placeholder = "Enter Password" ng-model = "password" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+</div>
+
+<div class="input-group mb-4">
+    <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-lg">Email</span>
+    </div>
+    <input placeholder = "Enter Email Address" ng-model = "email" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+</div>
+
+
+ 
+<div class="input-group mb-4 ">
+    <div class="input-group-prepend">
+<label for="" class="input-group-text">Alow user to change Password</label>
+</div>
+<select ng-model = "firsttym">
+    <option disabled selected value>-- select an option --</option>
+    <option value="true">allow</option>
+    <option value="false">not allow</option>
+</select>
+</div>
+      
+
+
+
+<div class="mb-4 float-right">
+        <button id="add" ng-click = "addUser()" class='btn btn-primary mr-2'><i class="fas fa-plus-square"></i>&nbsp;Add</button>
+        <button ng-click = "deleted()" id = "delete"class='btn btn-danger mr-2'><i class="fas fa-trash-alt"></i> &nbsp;Delete</button>
+        
+        <button ng-click = "update()"id = "update" class='btn btn-secondary mr-2'><i class="fas fa-pen-alt"></i>&nbsp;Update</button>
+        
+        <button ng-click = "clearAll()"id = "clearAll"class='btn btn-danger'><i class="fas fa-trash"></i>&nbsp;Clear All</button>
+    </div>  
+
+    
+
+        
+    </div>
+    
+</div>

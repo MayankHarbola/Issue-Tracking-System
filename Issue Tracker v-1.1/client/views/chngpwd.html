@@ -1,0 +1,43 @@
+<h1>change password here</h1>
+
+<div class="box" ng-controller = "ctrl">
+        <h2 class="text-center  alert-info">Change Password</h2>
+        
+      
+        <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">UserName</span>
+                </div>
+                <input placeholder = "Enter Current UserName"ng-model = "currentusername" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+
+        <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">New UserName</span>
+                </div>
+                <input placeholder = "Enter Current UserName"ng-model = "newusername" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+
+        <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Current Password</span>
+                </div>
+                <input placeholder = "Enter Current Password" ng-model = "curpassword" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+
+        <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">New Password</span>
+                </div>
+                <input placeholder = "Enter New Password" ng-model = "newpassword" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+        
+        <div class="input-group mb-4">
+                <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-lg">Enter your Email Address</span>
+                </div>
+                <input placeholder = "Enter your Email Address" ng-model = "email" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+        </div>
+        <button type="button"  ng-click = "chng()" class="btn btn-primary float-right mr-4">Submit</button>
+        {{chngmsg}}
+   </div>
