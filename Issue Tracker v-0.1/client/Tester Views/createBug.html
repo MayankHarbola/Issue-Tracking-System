@@ -1,0 +1,79 @@
+<div class="container">
+<h3>Create New Issue</h3>
+
+
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-9 ml-auto mr-auto">
+              <div class="card" >
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Create New Issue</h4>
+                  <p class="card-category">Are you looking for more components? Please check our Premium Version of Material Dashboard.</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive table-upgrade">
+                        <div class="form-group mb-4 mt-4">
+                                <label class="bmd-label-floating">Project Name</label>
+                                <input type="text" class="form-control">
+                    </div>
+
+                        <div class="dropdown mb-4 mt-3">
+                                <div class="form-group">
+                                    <label for="sel1">UserType:</label>
+                                    <select  ng-model = "type" ng-click = "what(type)"  class="form-control drop" id="sel1">
+                                        <option disabled selected value>-- select an option --</option>
+                                        <option value="critical">Critical Bug</option>
+                                        <option value="Major">Major Bug</option>
+                                        <option value="Minor">Minor Bug</option>
+                                    </select>
+                                  </div>
+                            </div>
+
+                        <div class="table-responsive table-upgrade">
+                                <div class="form-group mb-4 mt-4">
+                                        <label class="bmd-label-floating">Username</label>
+                                        <input type="text" class="form-control">
+                        </div>    
+
+
+                        <div class="form-group mb-4 mt-4">
+                                <label>Add description</label>
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Please assign detailed description of the Issue</label>
+                                    <textarea class="form-control" rows="5"></textarea>
+                                </div>
+                        </div>
+
+
+                        <div class="table-responsive table-upgrade">
+                                <div class="form-group mb-4 mt-4">
+                                        <label class="bmd-label-floating">Snap of Bug(to be changed.....)</label>
+                                        <input type="text" class="form-control">
+                        </div>    
+
+
+                        
+                        <div class="table-responsive table-upgrade ">
+                                <div class="form-group mb-4 mt-4">
+                                        <label class="bmd-label-floating">Assign To</label>
+                                        <input type="text" class="form-control">
+                        </div> 
+                        
+                        <div class="table-responsive table-upgrade">
+                                <div class="form-group mb-4 mt-4">
+                                        <label class="bmd-label-floating">Reporting Officer</label>
+                                        <input type="text" class="form-control">
+                        </div>
+                    
+                    <button type="submit" ng-click = "addUser()" class="btn btn-primary pull-right mr-3 btn-round"><i class="fas fa-plus-square"></i>&nbsp;&nbsp;Add New Issue</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+</div>

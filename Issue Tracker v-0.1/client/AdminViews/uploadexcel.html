@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  
+</head>
+<body>
+  
+  <div class="container uploadExcel " ng-controller="myctrl">
+  <h3>Upload your Excel file</h3>
+  <div>
+        <h2>{{msg}}</h2>
+        <form   name="form">
+            <label for="">Choose File to Upload</label>
+            
+                      
+               <button class="btn btn-info"  type="file" ngf-select ng-model="file" 
+               name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" ngf-max-size="2MB">Choose File</button>
+              <label for="">{{file.name}}</label>  
+               <button class="btn btn-success"  ng-click="submit(file)">submit</button>
+              </form>
+              
+              <img ngf-thumbnail="file">
+
+</div>
+
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title ">Users Table</h4>
+              <p class="card-category">List of all current users</p>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>userId</th>
+                    <th>usertype</th>
+                    <th>username</th>
+                    <th>password</th>
+                    <th>email</th>
+                  </thead>
+                  <tbody ng-init = "users">
+                        <tr ng-repeat = "user in users|filter:search" ng-model = "val"  ng-class = "{'alert-danger': user.markfordelete}">
+                                <td  ng-repeat = "(key,value) in user" ng-if="key != '_id' && key != '__v'  && key != 'firsttym' && key != 'markfordelete'" >
+                                    {{value}}
+                                    
+                                    
+                                </td>
+                        </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        
+
+
+
+</div>
+</body>
+</html>
