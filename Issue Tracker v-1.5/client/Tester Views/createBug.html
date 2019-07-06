@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+.up{
+  margin-left: 7%;
+}
+</style>
+<body>
+  <div class="container" ng-controller = "testctrl">
+    <h3>Create New Issue</h3>
+    <hr>
+    
+    <div class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-10 ml-auto mr-auto">
+                  <div class="card" >
+                    <div class="card-header card-header-rose">
+                      <h4 class="card-title">Create New Issue</h4>
+                      <p class="card-category">create new Issue to devloper</p>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive table-upgrade">
+                            <div class="form-group mb-4 mt-4">
+                                    <label class="bmd-label-floating">Project Name</label>
+                                    <input ng-model = "projectname" type="text" class="form-control">
+                        </div>
+    
+                            <div class="dropdown mb-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="sel1">UserType:</label>
+                                        <select  ng-model = "bugtype"   class="form-control drop" id="sel1">
+                                            <option disabled selected value>-- select an option --</option>
+                                            <option value="critical">Critical Bug</option>
+                                            <option value="Major">Major Bug</option>
+                                            <option value="Minor">Minor Bug</option>
+                                        </select>
+                                      </div>
+                                </div>
+    
+                            <div class="table-responsive table-upgrade">
+                                    <div class="form-group mb-4 mt-4">
+                                            <label class="bmd-label-floating">Assigned By</label>
+                                            <input ng-model = "username" type="text" class="form-control" disabled>
+                            </div>    
+                          
+                            <div class="form-group mb-4 mt-4">
+                                    <label>Add Titile</label>
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Title of bug</label>
+                                        <textarea ng-model = "title" class="form-control" rows="2"></textarea>
+                                    </div>
+                            </div>
+                            
+                            <div class="form-group mb-4 mt-4">
+                                    <label>Add description</label>
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Please assign detailed description of the Issue</label>
+                                        <textarea ng-model = "description" class="form-control" rows="5"></textarea>
+                                    </div>
+                            </div>
+    
+                            <!-- <div class="form-group mb-4 mt-4">
+                              <label>write photo url(to be changed)</label>
+                              <div class="form-group">
+                                <label class="bmd-label-floating">photo url</label>
+                                <input ng-model = "photourl" type="text" class="form-control">
+                              </div>
+                            </div> -->
+                          
+    
+    
+                            <div class="table-responsive table-upgrade">
+                               <label for="">Upload Bug Image</label>
+                                <form   name="form">
+                                 
+                                    
+                                    <img ng-init = "file = '../views/assets/img/faces/img.jpg '"  height="250" width="250" ngf-thumbnail="file"> 
+                                    <br>      
+                                       <button class="btn up btn-rose btn-round"  type="file" ngf-select ng-model="file" 
+                                       name="file" accept="image/*" ngf-max-size="2MB">Select Image</button>
+                                       <!-- <button class="btn btn-rose btn-round"  ng-click="submit(file)">submit</button> -->
+                                      </form>
+                                      
+                                      
+                                            
+                            </div>    
+    
+    
+                            
+                            <div class="table-responsive table-upgrade ">
+                                    <div class="form-group mb-4 mt-4">
+                                            <label class="bmd-label-floating">Assign To</label>
+                                            <input ng-model = "assignto" type="text" class="form-control">
+                            </div> 
+                            
+                            <div class="table-responsive table-upgrade">
+                                    <div class="form-group mb-4 mt-4">
+                                            <label class="bmd-label-floating">Reporting Officer</label>
+                                            <input ng-model = "reportofficer" type="text" class="form-control">
+                            </div>
+                        
+                        <button type="submit" ng-click = "addbug()" class="btn btn-primary pull-right mr-3 btn-round"><i class="fas fa-plus-square"></i>&nbsp;&nbsp;Add New Issue</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+    
+    </div>
+
+
+</body>
+</html>

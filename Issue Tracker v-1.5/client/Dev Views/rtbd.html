@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bower_components/animate.css">
+</head>
+<style>
+.inp{
+       font-size: 25px;
+       border: 1px solid #9C27B0;
+       padding: 25px;
+       border-radius: 25px;
+    }
+
+    #btn-shake{
+      
+    clear: both;
+    display: inline-block;
+    margin: 0px auto;
+
+    animation-name: shake-with-delay;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    }
+
+    @keyframes shake-with-delay {
+    from, 16%, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    1.6%, 4.8%, 8%, 11.2%, 14.4% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    3.2%, 6.4%, 9.6%, 12.8% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+.inp2{
+    width: 250px;
+    float: right;
+    display: inline; 
+}
+.inp2::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+.inp2:focus{
+    color: white;
+}
+.mybtn{
+    /* background-color: black; */
+    color: white;
+    position: absolute;
+    top: 57%;
+    right: 2%;
+} 
+</style>
+<body>
+    <div class="container">
+        <h3>Open Issues</h3>
+       <hr>
+           </div>
+
+
+    <!-- ****************************************************************** -->
+   
+                <!-- end col-md-12 -->
+                <div class="content">
+                        <div class="container-fluid">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="card">
+                                <div class="card-header card-header-warning">
+                                  <h4 class="card-title ">Bug To disscused</h4>
+
+                                  <i class="float-right mybtn fa fa-search"></i>
+                                  <input class="inp2 form-control " placeholder="Search User" type="text">
+                                  
+                                  <p class="card-category">list of All bugs that are Reported Tbd or Nab(Not a Bug)</p>
+                                </div>
+                                <div class="card-body">
+                                  <div class="table-responsive">
+                                    <table class="table">
+                                      <thead class=" text-primary">
+                                        <th>
+                                          ID
+                                        </th>
+                                        <th>
+                                          Name
+                                        </th>
+                                        <th>
+                                          Country
+                                        </th>
+                                        <th>
+                                          City
+                                        </th>
+                                        <th>
+                                          Salary
+                                        </th>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>
+                                            1
+                                          </td>
+                                          <td>
+                                            Dakota Rice
+                                          </td>
+                                          <td>
+                                            Niger
+                                          </td>
+                                          <td>
+                                            Oud-Turnhout
+                                          </td>
+                                          <td class="text-primary">
+                                            $36,738
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            2
+                                          </td>
+                                          <td>
+                                            Minerva Hooper
+                                          </td>
+                                          <td>
+                                            Curaçao
+                                          </td>
+                                          <td>
+                                            Sinaai-Waas
+                                          </td>
+                                          <td class="text-primary">
+                                            $23,789
+                                          </td>
+                                        </tr>
+                                       
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                
+              </div>
+</body>
+</html>
