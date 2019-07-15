@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bower_components/animate.css">
+</head>
+<style>
+.inp{
+       font-size: 25px;
+       border: 1px solid #9C27B0;
+       padding: 25px;
+       border-radius: 25px;
+    }
+
+    #btn-shake{
+      
+    clear: both;
+    display: inline-block;
+    margin: 0px auto;
+
+    animation-name: shake-with-delay;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    }
+
+    @keyframes shake-with-delay {
+    from, 16%, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    1.6%, 4.8%, 8%, 11.2%, 14.4% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    3.2%, 6.4%, 9.6%, 12.8% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+.myIcon{
+    font-size: 18px;
+}
+.inp2{
+    width: 250px;
+    float: right;
+    display: inline; 
+}
+.inp2::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: orange;
+  opacity: 1; /* Firefox */
+}
+.inp2:focus{
+    color: black;
+}
+.mybtn{
+    /* background-color: black; */
+    color: orange;
+    position: absolute;
+    top: 57%;
+    right: 2%;
+} 
+</style>
+<body>
+    <div class="container" ng-controller = "dev-ctrl">
+        <h3>Critical Bugs</h3>
+       <hr>
+      
+    
+
+
+    <!-- ****************************************************************** -->
+    <div class="content" >
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                       <div class="card">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i id="btn-shake" class="animated shake material-icons">warning</i>
+                  </div>
+                  <h4 class="card-title">Critical Bugs</h4>
+
+                  <i class="float-right mybtn fa fa-search"></i>
+                  
+                  <input class="inp2 form-control " placeholder="Search User" ng-model = "search" type="text">
+   
+                  <label for="">List of All Crtical Bugs</label>
+                </div>
+                <div class="card-body">
+                  <div class="toolbar">
+                    <!--        Here you can write extra buttons/actions for the toolbar              -->
+                  </div>
+                      <div class="material-datatables">
+                        <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                            
+                                <thead class="">
+                                  <th>Bug Id</th>
+                                  <th>Title</th>
+                                  <th>Type</th>
+                                  <th>Assigned By</th>
+                                  <th>Status</th>
+                                  <th>More Info...</th>
+                                </thead>
+                                <tbody ng-init = issues>
+                                  <tr  ng-repeat = "issue in issues|filter:search" ng-if = "issue.status != 'closed' && issue.type == 'critical'">
+                                    
+                                    <td  ng-repeat = "(key,value) in issue"  >
+                                      {{value}}
+                                      
+                                      
+                                  </td>
+                                    <td >    
+                                        <button id='btn' ng-if = "issue.status != 'Reopen'" ng-click = "moreInfo(issue.bugID)" class='btn btn-sm btn  btn-info  mr-2'><i class="material-icons">priority_high</i>&nbsp;More Info</button>
+                                        <button id='btn' ng-if = "issue.status == 'Reopen'" ng-click = "redirect(issue.bugID)" class='btn btn-sm btn btn-facebook  mr-2'><i class="material-icons">priority_high</i>&nbsp;More Info</button>
+                                        
+                                        <!-- <button  class="btn btn-sm btn-success"><i class="material-icons">check</i>&nbsp;solve Bug</button> -->
+                                        <button ng-click = "redirect(issue.bugID)" ng-if = "issue.status == 'solved' || issue.status == 'tbd' || issue.status == 'nab'" class="btn  btn-sm btn-success"><i class="material-icons">check</i>&nbsp;Solved</button>
+                                        <button ng-click = "solvebug(issue.bugID)" ng-if = "issue.status == 'open'"   class="btn  btn-sm btn  btn-warning"><i class="material-icons">warning</i>&nbsp;&nbsp;solve Bug</button>
+                                        <button ng-click = "solvebug(issue.bugID)" ng-if = "issue.status == 'Reopen'"   class="btn  btn-sm btn  btn-warning"><i class="material-icons">warning</i>&nbsp;&nbsp;Reassigned</button>
+                                        
+                                      </td>
+                                  </tr>
+                                  
+                                </tbody>
+                              
+                        </table>
+                      </div>
+                    </div>
+                    <!-- end content-->
+                  </div>
+                  <!--  end card  -->
+                </div>
+                </div>
+                <!-- end col-md-12 -->
+               
+
+                
+              </div>
+              </div>
+
+            </div>     
+</body>
+</html>

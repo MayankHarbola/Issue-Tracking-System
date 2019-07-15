@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.userinfo{
+    text-align: left;
+    padding: 10px;
+    /* margin: 10px; */
+
+}
+.userinfo label{
+    font-size: 16px;
+}
+.font{
+  font-size: 19px;
+}
+</style>
+<body>
+        <div class = "container" ng-controller = "testctrl" ng-init = "getdata()">
+                <h3>solved Issue Page</h3>           
+                       <div class="content">
+                           <div class="container-fluid">
+                             <div class="row">
+                               <div class="col-md-6">
+                                 <div class="card">
+                                   <div ng-init = "check()" class="card-header ">
+                                       <h3  class="card-title">Issue Id-
+                                         <label class="font" for="">{{bugID}}</label>
+                                    <!-- <small class="description">{{bugID}}</small> -->
+                                         <button ng-click = "closeBug()" ng-show = "usertype" class="btn btn-sm  btn-danger"><i class="material-icons">close</i>&nbsp;close Issue</button>
+                                         <button ng-show = "usertype" ng-click = "showAndFocus()"  class="btn btn-sm btn  btn-warning"><i class="material-icons">warning</i>&nbsp;Reopen</button>
+                                       </h3>
+                                     </div>
+                                   <div class="card-body">
+                                           <div class="table-responsive">
+                                     <img height="300" width="450" src="../../server/{{url}}" alt="">
+           
+                                     <div class="mt-4">
+                                     <span class="tim-note ">Title :</span>
+                                   <p class="text-primary">{{title}}</p>
+                                  </div>
+                                   <div class="desc">        
+                                   <span class="tim-note">Description :</span>
+                                   <p class="text-primary">{{desc}}</p>
+                                   
+                                   <div ng-init = "index = $index" ng-repeat = "edit in edits">
+                                    <label for="">Edit {{index}}:</label> 
+                                   <p class="text-primary">{{edit}}</p>    
+                                  </div>
+                                  </div>        
+                                   </div>
+                                   </div>
+                                 </div>
+                                 <!--**************************Extra Description****************************  -->
+
+                                 <div   ng-show="showDiv" class="card">
+                                    <!-- <div class="card-header ">
+                                        <h3 class="card-title">Issue Id-
+                                          <small class="description">{{bugID}}</small>
+                                          <button class="btn btn-sm  btn-danger"><i class="material-icons">close</i>&nbsp;close Issue</button>
+                                          <button  class="btn btn-sm btn  btn-warning"><i class="material-icons">warning</i>&nbsp;Reopen</button>
+                                        </h3>
+                                      </div> -->
+                                    <div class="card-body">
+                                        <div class="form-group mb-4 mt-4">
+                                            <label>Add description</label>
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Remember this is added to descrption with Edit tag</label>
+                                                <textarea id = "text" ng-model = "reopenDesc" class="form-control" rows="5"></textarea>
+                                            </div>
+                                    </div>
+                                    <button type="submit" ng-click = "EditDescription()" class="btn btn-sm btn-primary pull-right mr-3 btn-round"><i class="fas fa-plus-square"></i>&nbsp;&nbsp;Add Response</button>
+                                    </div>
+                                  </div>
+                               </div>
+                   
+                   <!--***********************Rights List ***************************************  -->
+                   
+                   <div class="col-md-6">
+                        <div class="card">
+                                <div class="card-header ">
+                                        <h3 class="card-title"></h3>
+                                      </div>
+                                    <div class="card-body">
+                                            <div class="table-responsive">
+            
+                        
+                                                    <div class="userinfo">
+                                                            <label >Project Name :</label>
+                                                            <label class="text-primary">{{projectName}}</label>
+                                                    
+                                                     </div>         
+                                    
+                                                  <div class="userinfo">
+                                                        <label >Assign To :</label>
+                                                        <label class="text-primary">{{assignTo}}</label>
+                                                
+                                                 </div>
+                                
+                                                 <div class="userinfo">
+                                                        <label >Reporting Officer :</label>
+                                                        <label class="text-primary">{{reporting}}</label>
+                                                
+                                                 </div>      
+                                    </div>
+                                    </div>
+                           </div>   
+                        <div class="card">
+                                <div class="card-header ">
+                                    <h3 class="card-title">Solved Issue</h3>
+                                  </div>
+                                <div class="card-body">
+                                        <div class="table-responsive">
+                                  <img height="300" width="450" src="../../server/{{solimg}}" alt="">
+        
+                    
+                                <div class="desc mt-4">        
+                                <span class="tim-note">solved Issue :</span>
+                                <p class="text-primary">{{solution}}</p>      
+                                </div>        
+                                </div>
+                                </div>
+                              </div>
+                           
+                          
+                       </div>
+                     </div>
+                   </div>
+                    
+                   </div>
+           
+                       
+           </div>
+
+</body>
+</html>
+

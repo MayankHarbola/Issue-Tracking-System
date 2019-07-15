@@ -1,0 +1,25 @@
+{
+  "name": "client",
+  "authors": [
+    "Mayank Harbola <36039776+MayankHarbola@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.8",
+    "angular-route": "^1.7.8",
+    "bootstrap": "^4.3.1",
+    "ng-file-upload": "^12.2.13",
+    "ngSweetAlert": "angular-sweetalert#^1.1.3",
+    "angular-chart.js": "^1.1.1"
+  }
+}

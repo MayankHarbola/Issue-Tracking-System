@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bower_components/animate.css">
+</head>
+<style>
+.inp{
+       font-size: 25px;
+       border: 1px solid #9C27B0;
+       padding: 25px;
+       border-radius: 25px;
+    }
+
+    #btn-shake{
+      
+    clear: both;
+    display: inline-block;
+    margin: 0px auto;
+
+    animation-name: shake-with-delay;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    }
+
+    @keyframes shake-with-delay {
+    from, 16%, to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    1.6%, 4.8%, 8%, 11.2%, 14.4% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    3.2%, 6.4%, 9.6%, 12.8% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+.myIcon{
+    font-size: 18px;
+}
+.inp2{
+    width: 250px;
+    float: right;
+    display: inline; 
+}
+.inp2::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: orange;
+  opacity: 1; /* Firefox */
+}
+.inp2:focus{
+    color: black;
+}
+.mybtn{
+    /* background-color: black; */
+    color: orange;
+    position: absolute;
+    top: 57%;
+    right: 2%;
+} 
+</style>
+<body>
+    <div class="container" ng-controller = "testctrl">
+        <h3>Open Issues</h3>
+       <hr>
+      
+    
+
+
+    <!-- ****************************************************************** -->
+    <div class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-warning card-header-icon">
+                  <div class="card-icon">
+                    <i id="btn-shake" class="animated shake material-icons">warning</i>
+                  </div>
+                  <h4 class="card-title">Bugs To be Disscused</h4>
+
+                  <i class="float-right mybtn fa fa-search"></i>
+                  <!-- <i class="material-icons">search</i> -->
+                  <input class="inp2 form-control " placeholder="Search User" ng-model = "search" type="text">
+
+                  <label for="">list of All bugs that are Reported Tbd or Nab(Not a Bug)</label>
+                </div>
+                 
+                        
+
+                     
+                      <div class="card-body">
+                         <div class="material-datatables">
+                          <div class="table-responsive">
+                                <table class="table">
+                                        <thead class=" text-primary"> 
+                                          <th>IssueId</th>
+                                          <th>Project Name</th>
+                                          <th>Title</th>
+                                          <th>Assign to</th>
+                                          <th>Status</th>
+                                          
+                                          <th>More info..</th>
+                                        </thead>
+                                        <tbody ng-init = "users">
+                                              <tr ng-repeat = "user in users|filter:search" ng-if = "user.bugSatus == 'tbd' || user.bugSatus == 'nab'">
+                                                      <td  ng-repeat = "(key,value) in user">
+                                                          {{value}}
+                                                         
+                                                          
+                                                      </td>
+                                                    
+                                                      <td  >    
+                                                          
+                                                              <button id='btn' ng-click = "moreInfo(user.rightId)" class='btn btn-sm btn  btn-info  mr-2'><i class="material-icons">priority_high</i>&nbsp;More Info</button>
+                                                              <!-- <button id='btn' ng-click = "moreInfo(user.rightId)" class='btn btn-sm btn  btn-info  mr-2'><i class="material-icons">priority_high</i>&nbsp;More Info</button> -->
+                                                              <button ng-if = "user.bugSatus == 'open'" ng-click = "closeBug(user.rightId)" class="btn btn-sm btn btn-danger mr-2"><i class="material-icons">close</i>&nbsp;close bug</button>
+                                                              <button  ng-if = "user.bugSatus == 'solved'" ng-click = "solved(user.rightId)" class="btn  btn-sm btn-success"><i class="material-icons">check</i>&nbsp;Solved</button>
+                                                              <button ng-if = "user.bugSatus == 'Reopen'"  ng-click = "solved(user.rightId)" class="btn  btn-sm btn  btn-warning"><i class="material-icons">warning</i>&nbsp;&nbsp;reassigned</button>
+                                                              
+                                                              <button ng-if = "user.bugSatus == 'tbd' ||  user.bugSatus == 'nab'"  ng-click = "solved(user.rightId)" class="btn  btn-sm btn  btn-warning"><i class="material-icons">warning</i>&nbsp;&nbsp;Solved</button>
+                                                              
+                                                      </td>
+                                              </tr>
+                                        </tbody>
+                                      </table>
+            
+                          </div>
+                        </div> 
+                        </div>
+                    <!-- end content-->
+                  </div>
+                  <!--  end card  -->
+                </div>
+                </div>
+                </div>
+    </div>
+                <!-- end col-md-12 -->
+               
+
+                
+              </div>
+</body>
+</html>

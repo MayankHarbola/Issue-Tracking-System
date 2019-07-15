@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.myIcon{
+    font-size: 18px;
+}
+.inp{
+    width: 250px;
+    float: right;
+    display: inline; 
+}
+.inp::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+.inp:focus{
+    color: white;
+}
+.mybtn{
+    background-color: none;
+    
+    position: absolute;
+    top: 57%;
+    right: 3%;
+} 
+</style>
+<body>
+   <div class="container" ng-controller="controller">
+       <h3>Closed Bugs</h3>
+       <hr>
+
+       <div class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-success">
+                      <h4 class="card-title "><i class="myIcon material-icons" >done_outline</i>
+                       Closed Bugs
+                      
+                    </h4>
+                    <i class="float-right mybtn fa fa-search"></i>
+                    <input class="inp form-control inp" placeholder= "Search User" type="text" ng-model="search">
+                    
+                      <p class="card-category">List of all bugs that are solved</p>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class=" text-primary">
+                              <th>Issue Id</th>
+                              <th>Project Name</th>
+                              <th>Title</th>
+                              <th>Assign to</th>
+                              <th>Assigned By</th>
+                          </thead>
+                          <tbody ng-init="Issues">
+                              <tr ng-repeat="issue in Issues|filter:search" ng-if = "issue.bugSatus == 'closed'">
+                                <td ng-repeat="(key,value) in issue" ng-if = "key != 'type' && key != 'bugSatus'">
+                                  {{ value }}
+                                  
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+   </div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contanier" ng-controller = "Dashboard">
+        <h3> Edit Profile</h3>
+        <hr>
+   <!-- ****************************************************************** -->
+
+   <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="card">
+                <div class="card-header card-header-icon card-header-rose">
+                  <div class="card-icon">
+                    <i class="material-icons">perm_identity</i>
+                  </div>
+                  <h4 class="card-title">Edit Profile -
+                    <small class="category">Complete your profile</small>
+                  </h4>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Company (disabled)</label>
+                          <input type="text" class="form-control" ng-model = "userId" disabled>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Username</label>
+                          <input type="text" ng-model = "username" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Email address</label>
+                          <input type="email" ng-model = "email" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Fist Name</label>
+                          <input type="text" ng-model = "first" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Last Name</label>
+                          <input type="text" ng-model = "second" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-7">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Address</label>
+                          <input type="text" ng-model= "Address" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-5">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">phone</label>
+                          <input type="text" ng-model= "phone" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">City</label>
+                          <input type="text" ng-model = "city" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Country</label>
+                          <input type="text" ng-model = "country" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Postal Code</label>
+                          <input type="text" ng-model = "pincode" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>About Me</label>
+                          <div class="form-group">
+                            <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                            <textarea class="form-control" ng-model = "desc" rows="5"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-rose pull-right" ng-click = "update()">Update Profile</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-profile">
+                <div class="card-avatar">
+                  
+                </div>
+                <div class="card-body">
+                  
+                    <label for="">Upload Profile Image</label>
+                     <form   name="form">
+                      
+                         
+                         <img ng-init = "file = '../views/assets/img/default-avatar.png '" class="rounded-circle"   ngf-thumbnail="file"> 
+                         <br>      
+                            <button class="btn up btn-rose btn-round"  type="file" ngf-select ng-model="file" 
+                            name="file" accept="image/*" ngf-max-size="2MB">Select Image</button>
+                            <!-- <button class="btn btn-rose btn-round"  ng-click="submit(file)">submit</button> -->
+                      </form>
+                           
+                           
+                                 
+     
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+    </div>
+</body>
+</html>

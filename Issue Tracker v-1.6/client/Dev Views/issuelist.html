@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+.yo{
+  text-align: center;
+}
+.mybtn {
+      width: 120px;
+    }
+    .inp{
+       font-size: 25px;
+       border: 1px solid #9C27B0;
+       padding: 25px;
+       border-radius: 25px;
+    }   
+</style>
+<body>
+  
+    <div class="container" ng-controller = "dev-ctrl">
+        <h3>Issue List</h3>
+     <hr>
+
+     <input class="form-control inp mb-3 mt-3"  type="text" ng-model="search" placeholder=" 🔍 Search User "  >
+        <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-icon card-header-rose">
+                <div class="card-icon">
+                  <i class="material-icons">assignment</i>
+                </div>
+                <h4 class="card-title ">Assigned Bugs</h4>
+              </div>
+              <div class="card-body yo table-full-width table-hover">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class="">
+                      <th>Bug Id</th>
+                      <th>Title</th>
+                      <th>Type</th>
+                      <th>Assigned By</th>
+                      <th>Status</th>
+                      <th>More Info...</th>
+                    </thead>
+                    <tbody ng-init = issues>
+                      <tr  ng-repeat = "issue in issues|filter:search" ng-if = "issue.status != 'closed'">
+                        
+                        <td  ng-repeat = "(key,value) in issue"  >
+                          {{value}}
+                          
+                          
+                      </td>
+                        <td >    
+                            <button id='btn' ng-if = "issue.status != 'Reopen'" ng-click = "moreInfo(issue.bugID)" class='btn btn-sm btn  btn-info  mr-2'><i class="material-icons">priority_high</i>&nbsp;More Info</button>
+                            <button id='btn' ng-if = "issue.status == 'Reopen'" ng-click = "redirect(issue.bugID)" class='btn btn-sm btn btn-facebook  mr-2'><i class="material-icons">priority_high</i>&nbsp;More Info</button>
+                            
+                            <!-- <button  class="btn btn-sm btn-success"><i class="material-icons">check</i>&nbsp;solve Bug</button> -->
+                            <button ng-click = "redirect(issue.bugID)" ng-if = "issue.status == 'solved' || issue.status == 'tbd' || issue.status == 'nab'" class="btn mybtn btn-sm btn-success"><i class="material-icons">check</i>&nbsp;Solved</button>
+                            <button ng-click = "solvebug(issue.bugID)" ng-if = "issue.status == 'open'"   class="btn mybtn btn-sm btn  btn-warning"><i class="material-icons">warning</i>&nbsp;&nbsp;solve Bug</button>
+                            <button ng-click = "solvebug(issue.bugID)" ng-if = "issue.status == 'Reopen'"   class="btn mybtn btn-sm btn  btn-warning"><i class="material-icons">warning</i>&nbsp;&nbsp;Reassigned</button>
+                            
+                          </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    </div>
+
+
+</body>
+</html>

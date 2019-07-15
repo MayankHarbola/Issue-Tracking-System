@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+ .inp{
+       font-size: 25px;
+       border: 1px solid #9C27B0;
+       padding: 25px;
+       border-radius: 25px;
+    }
+    th{
+      text-align: center;
+    }
+    .mybtn {
+      width: 120px;
+    }
+</style>
+<body>
+
+        <div class="container" ng-controller = "testctrl" >
+                <h3>Reported BUG</h3>
+                <input class="form-control inp mb-3 mt-3"  type="text" ng-model="search" placeholder=" 🔍 Search User "  >
+                
+                <div class="content">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="card">
+                            <div class="card-header card-header-rose card-header-icon">
+                              <div class="card-icon">
+                                <i class="material-icons">assignment</i>
+                              </div>
+                              <h4 class="card-title"></h4>
+                            </div>
+                            <div class="card-body">
+                              <div class="table-responsive">
+                                    <table class="table">
+                                            <thead class=" text-primary"> 
+                                              <th>IssueId</th>
+                                              <th>Project Name</th>
+                                              <th>Title</th>
+                                              <th>Assign to</th>
+                                              <th>Status</th>
+                                              
+                                              <th>More info..</th>
+                                            </thead>
+                                            <tbody ng-init = "users">
+                                                  <tr ng-repeat = "user in users|filter:search" ng-if = "user.bugSatus != 'closed'">
+                                                          <td  ng-repeat = "(key,value) in user">
+                                                              {{value}}
+                                                             
+                                                              
+                                                          </td>
+                                                        
+                                                          <td  >    
+                                                              
+                                                                  <button id='btn' ng-click = "moreInfo(user.rightId)" class='btn btn-sm btn  btn-info  mr-2'><i class="material-icons">priority_high</i>&nbsp;More Info</button>
+                                                                  <!-- <button id='btn' ng-click = "moreInfo(user.rightId)" class='btn btn-sm btn  btn-info  mr-2'><i class="material-icons">priority_high</i>&nbsp;More Info</button> -->
+                                                                  <button ng-if = "user.bugSatus == 'open'" ng-click = "closeBug(user.rightId)" class="btn btn-sm btn btn-danger mr-2"><i class="material-icons">close</i>&nbsp;close bug</button>
+                                                                  <button  ng-if = "user.bugSatus == 'solved'" ng-click = "solved(user.rightId)" class="btn mybtn btn-sm btn-success"><i class="material-icons">check</i>&nbsp;Solved</button>
+                                                                  <button ng-if = "user.bugSatus == 'Reopen'"  ng-click = "solved(user.rightId)" class="btn mybtn btn-sm btn  btn-warning"><i class="material-icons">warning</i>&nbsp;&nbsp;reassigned</button>
+                                                                  
+                                                                  <button ng-if = "user.bugSatus == 'tbd' ||  user.bugSatus == 'nab'"  ng-click = "solved(user.rightId)" class="btn mybtn btn-sm btn  btn-warning"><i class="material-icons">warning</i>&nbsp;&nbsp;Solved</button>
+                                                                  
+                                                          </td>
+                                                  </tr>
+                                            </tbody>
+                                          </table>
+                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                
+                
+                        
+                </div>
+
+</body>
+</html>
