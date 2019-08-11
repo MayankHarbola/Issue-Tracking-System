@@ -1,1 +1,0 @@
-const app = angular.module("login",['ngRoute','ngFileUpload']);
